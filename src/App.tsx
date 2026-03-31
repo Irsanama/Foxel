@@ -1,5 +1,5 @@
 import {lazy} from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {Routes, Route, HashRouter} from 'react-router-dom';
 import {Layout} from '@/components/layout/Layout';
 
 const HomePage = lazy(() => import('@/pages/HomePage').then(m => ({default: m.HomePage})));
@@ -12,7 +12,8 @@ const NotFoundPage = lazy(() => import('@/pages/NotFoundPage').then(m => ({defau
 
 function App() {
   return (
-      <BrowserRouter basename={import.meta.env.DEV ? '/' : '/Foxel'}>
+      //<BrowserRouter basename={import.meta.env.DEV ? '/' : '/Foxel'}>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<HomePage/>}/>
@@ -25,7 +26,8 @@ function App() {
             <Route path="*" element={<NotFoundPage/>}/>
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
+      //</BrowserRouter>
   );
 }
 
