@@ -1,10 +1,15 @@
+const getAssetPath = (path: string) => {
+    const base = import.meta.env.BASE_URL;
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    return `${base}${cleanPath}`;
+};
+
 export interface PartnerAsset {
     id: number;
     name: string;
     url: string;
     color: string
 }
-
 
 export interface SocialLink {
     id: 'telegram' | 'discord' | 'youtube' | 'github' | 'vk';
@@ -13,7 +18,6 @@ export interface SocialLink {
     color: string;
     followers?: string
 }
-
 
 export const iconSize = {
     xs: '0.75rem',
@@ -25,62 +29,60 @@ export const iconSize = {
 
 export type IconSize = keyof typeof iconSize;
 
-
 export const svg = {
     icons: {
-        imagePlaceholder: '/svg/icons/image-placeholder.svg',
-        videoPlaceholder: '/svg/icons/video-placeholder.svg',
-        avatarPlaceholder: '/svg/icons/avatar-placeholder.svg'
+        imagePlaceholder: getAssetPath('/svg/icons/image-placeholder.svg'),
+        videoPlaceholder: getAssetPath('/svg/icons/video-placeholder.svg'),
+        avatarPlaceholder: getAssetPath('/svg/icons/avatar-placeholder.svg')
     },
     social: {
-        telegram: '/svg/social/telegram.svg',
-        discord: '/svg/social/discord.svg',
-        youtube: '/svg/social/youtube.svg',
-        github: '/svg/social/github.svg',
-        vk: '/svg/social/vk.svg',
-        linkedin: '/svg/social/linkedin.svg'
+        telegram: getAssetPath('/svg/social/telegram.svg'),
+        discord: getAssetPath('/svg/social/discord.svg'),
+        youtube: getAssetPath('/svg/social/youtube.svg'),
+        github: getAssetPath('/svg/social/github.svg'),
+        vk: getAssetPath('/svg/social/vk.svg'),
+        linkedin: getAssetPath('/svg/social/linkedin.svg')
     },
     brand: {
-        google: '/svg/brand/google.svg'
+        google: getAssetPath('/svg/brand/google.svg')
     },
 } as const;
 
-
 export const images = {
-    logo: '/images/logo.svg',
-    logoSmall: '/images/logo-small.svg',
+    logo: getAssetPath('/images/logo.svg'),
+    logoSmall: getAssetPath('/images/logo-small.svg'),
     courses: {
-        'web-development-basics': '/images/courses/web-development.png',
-        'python-programming': '/images/courses/python.png',
-        'react-advanced': '/images/courses/react-advanced.png',
-        'ui-ux-design': '/images/courses/ui-ux-design.png',
-        'data-science-intro': '/images/courses/data-science.png',
-        'mobile-flutter': '/images/courses/flutter.png'
+        'web-development-basics': getAssetPath('/images/courses/web-development.png'),
+        'python-programming': getAssetPath('/images/courses/python.png'),
+        'react-advanced': getAssetPath('/images/courses/react-advanced.png'),
+        'ui-ux-design': getAssetPath('/images/courses/ui-ux-design.png'),
+        'data-science-intro': getAssetPath('/images/courses/data-science.png'),
+        'mobile-flutter': getAssetPath('/images/courses/flutter.png')
     } as Record<string, string>,
 
     blog: {
-        'how-to-start-programming': '/images/blog/how-to-start.jpg',
-        'ai-tools-for-developers': '/images/blog/ai-tools.webp',
-        'web-design-trends-2026': '/images/blog/web-design-trends.webp',
-        'typescript-vs-javascript': '/images/blog/typescript-vs-js.webp'
+        'how-to-start-programming': getAssetPath('/images/blog/how-to-start.jpg'),
+        'ai-tools-for-developers': getAssetPath('/images/blog/ai-tools.webp'),
+        'web-design-trends-2026': getAssetPath('/images/blog/web-design-trends.webp'),
+        'typescript-vs-javascript': getAssetPath('/images/blog/typescript-vs-js.webp')
     } as Record<string, string>,
 
     team: {
-        'alexander-volkov': '/images/team/alexander-volkov.png',
-        'ekaterina-morozova': '/images/team/ekaterina-morozova.png',
-        'dmitry-sokolov': '/images/team/dmitry-sokolov.png',
-        'anna-ivanova': '/images/team/anna-ivanova.png',
-        'mikhail-petrov': '/images/team/mikhail-petrov.png',
-        'yulia-smirnova': '/images/team/yulia-smirnova.png'
+        'alexander-volkov': getAssetPath('/images/team/alexander-volkov.png'),
+        'ekaterina-morozova': getAssetPath('/images/team/ekaterina-morozova.png'),
+        'dmitry-sokolov': getAssetPath('/images/team/dmitry-sokolov.png'),
+        'anna-ivanova': getAssetPath('/images/team/anna-ivanova.png'),
+        'mikhail-petrov': getAssetPath('/images/team/mikhail-petrov.png'),
+        'yulia-smirnova': getAssetPath('/images/team/yulia-smirnova.png')
     } as Record<string, string>,
 
     avatars: {
-        'alexander-volkov': '/images/avatars/alexander-volkov.png',
-        'ekaterina-morozova': '/images/avatars/ekaterina-morozova.png',
-        'dmitry-sokolov': '/images/avatars/dmitry-sokolov.png',
-        'anna-ivanova': '/images/avatars/anna-ivanova.png',
-        'mikhail-petrov': '/images/avatars/mikhail-petrov.png',
-        'yulia-smirnova': '/images/avatars/yulia-smirnova.png'
+        'alexander-volkov': getAssetPath('/images/avatars/alexander-volkov.png'),
+        'ekaterina-morozova': getAssetPath('/images/avatars/ekaterina-morozova.png'),
+        'dmitry-sokolov': getAssetPath('/images/avatars/dmitry-sokolov.png'),
+        'anna-ivanova': getAssetPath('/images/avatars/anna-ivanova.png'),
+        'mikhail-petrov': getAssetPath('/images/avatars/mikhail-petrov.png'),
+        'yulia-smirnova': getAssetPath('/images/avatars/yulia-smirnova.png')
     } as Record<string, string>,
 } as const;
 

@@ -9,13 +9,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: '/Foxel/',
+export default defineConfig(({ command }) => {
+  return {
+    base: command === 'build' ? '/Foxel/' : '/',
 
-  plugins: [react(), tailwindcss(), viteSingleFile()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
+    plugins: [react(), tailwindcss(), viteSingleFile()],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src"),
+      },
     },
-  },
+  }
 })
