@@ -12,7 +12,7 @@ const NotFoundPage = lazy(() => import('@/pages/NotFoundPage').then(m => ({defau
 
 function App() {
   return (
-      <BrowserRouter basename={process.env.NODE_ENV === 'production' ? '/Foxel' : ''}>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<HomePage/>}/>
