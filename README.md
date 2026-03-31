@@ -71,15 +71,19 @@ export default defineConfig([
   },
 ])
 ```
-Как запустить:
+#Как запустить:
 npm install
 
 npm run dev
 
-Зависимости:
+
+#Зависимости:
 npm install react@latest react-dom@latest react-router-dom@latest clsx@latest lucide-react@latest tailwind-merge@latest
 
 npm install -D vite@latest @vitejs/plugin-react@latest tailwindcss@latest @tailwindcss/vite@latest typescript@latest @types/react@latest @types/react-dom@latest @types/node@latest vite-plugin-singlefile@latest
 
+
+#Ссылка на сайт:
+https://irsanama.github.io/Foxel/
 
 
